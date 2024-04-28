@@ -1,21 +1,16 @@
 # Scribble.io
 
 
-Scribble.io is my attempt at building a clone of the web-based drawing and guessing game [skribbl.io](https://skribbl.io).
+Scribble.io is my attempt at building a clone of the web-based drawing and guessing game .
 
-To play a game: [https://skribblrs.up.railway.app/](https://skribblrs.up.railway.app/)
-
-> It might take a few seconds to respond due to inactivity.
-
-The site does not collect any user data or display ads.
 
 ## Local setup
 
 The project requires Node.js to be installed on your system. To run the project locally:
 
 ```bash
-git clone https://github.com/Aditya-ds-1806/Skribblrs.io.git
-cd Skribblrs.io
+git clone [https://github.com/Sakshamm-Goyal/Scribble.io.git]
+cd Scribble.io
 npm i
 npm run start
 ```
@@ -58,7 +53,7 @@ The app will run by default on port 3000. Open your browser and go to [http://lo
 
 MIT License
 
-Copyright (c) 2021 Aditya DS
+Copyright (c) 2024 Saksham Goyal
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
