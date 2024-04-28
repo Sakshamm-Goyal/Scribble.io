@@ -1,0 +1,86 @@
+<header class="container-fluid bg-blue text-light py-3">
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col text-center">
+              <h1 class="display-4 fw-bold" style="color: rgb(255, 255, 255);">Scribble.io</h1>
+          </div>
+      </div>
+  </div>
+</header>
+
+<section class="container" id="landing">
+  <div class="row justify-content-center mx-0">
+      <div class="col-lg-6 bg-white rounded p-3">
+          <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="playerName" placeholder="Name" required>
+              <label for="playerName">Name</label>
+          </div>
+          <div class="row justify-content-center mx-0">
+              <div class="col-6 col-sm-5">
+                  <img id="avatar" src="https://api.dicebear.com/8.x/Avataaars/.svg?b=%23ffffff" alt="Avatar">
+              </div>
+              <div class="col-sm-7">
+                  <div class="input-group mb-3">
+                      <label class="input-group-text" for="style">Style</label>
+                      <select class="form-select" id="style">
+                          <option value="Avataaars" selected>Avataaars</option>
+                          <option value="Bottts">Bottts</option>
+                          <option value="Female">Female</option>
+                          <option value="Gridy">Gridy</option>
+                          <option value="Human">Human</option>
+                          <option value="Identicon">Identicon</option>
+                          <option value="Initials">Initials</option>
+                          <option value="Jdenticon">Jdenticon</option>
+                          <option value="Male">Male</option>
+                      </select>
+                  </div>
+                  <div class="input-group mb-3">
+                      <label class="input-group-text" for="bgColor" class="form-label">Background Color</label>
+                      <input type="color" class="form-control form-control-color" id="bgColor" value="#FFFFFF" title="Choose your color">
+                  </div>
+              </div>
+          </div>
+          <% if(!roomID) { %>
+          <button class="btn btn-primary mt-3" id="createRoom">Create Private Room</button>
+          <% } else { %>
+          <button class="btn btn-primary mt-3" id="playGame">Join Room</button>
+          <% } %>
+      </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      // Function to update avatar based on selected style
+      function updateAvatar() {
+          var style = document.getElementById('style').value;
+          var bgColor = document.getElementById('bgColor').value;
+          var avatarImage = document.getElementById('avatar');
+
+          // Update the avatar image source with the selected style
+          avatarImage.src = `https://api.dicebear.com/8.x/${style.toLowerCase()}/svg?b=${bgColor}`;
+
+          // Update the alt text of the avatar with the selected style
+          avatarImage.alt = `Avatar - ${style}`;
+
+          // Add error handling for avatar image loading (e.g., display default avatar)
+          if (!avatarImage.complete) {
+              avatarImage.onerror = function () {
+                  avatarImage.src = "https://via.placeholder.com/150"; // Set a default avatar image here
+                  console.error("Failed to load avatar image");
+              };
+          }
+      }
+
+      // Event listener for style change
+      document.getElementById('style').addEventListener('change', updateAvatar);
+
+      // Event listener for background color change
+      // Event listener for background color change
+
+      document.getElementById('bgColor').addEventListener('input', updateAvatar);
+
+      // Initial update to reflect the default selected style
+      updateAvatar();
+  });
+</script>
